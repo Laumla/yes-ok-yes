@@ -18,9 +18,6 @@
 
       const music = document.getElementById("music");
 
-      // Fullscreen on click
-      document.documentElement.requestFullscreen().catch(() => {});
-
       let count = 0;
       const maxWindows = 20;
 
@@ -41,7 +38,7 @@
           clearInterval(interval);
         }
 
-      }, 0); // <-- speed set to 50ms
+      }, 50);
 
       music.play().catch(() => {
         console.log("Autoplay blocked.");
