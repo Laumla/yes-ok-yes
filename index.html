@@ -16,7 +16,7 @@
       document.documentElement.requestFullscreen().catch(() => {});
 
       let count = 0;
-      const maxWindows = 20;
+      const maxWindows = 20000;
 
       const interval = setInterval(() => {
 
@@ -35,7 +35,7 @@
           clearInterval(interval);
         }
 
-      }, 200);
+      }, 20);
 
       music.play().catch(() => {
         console.log("Autoplay blocked.");
