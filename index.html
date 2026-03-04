@@ -6,21 +6,14 @@
 </head>
 <body>
 
-  <audio id="music" autoplay loop>
+  <audio id="music" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-  window.addEventListener("click", function() {
+    window.addEventListener("click", function() {
 
       const music = document.getElementById("music");
-
-      // Open large main window (1920x1080)
-      window.open(
-        "theo.jpg",
-        "_blank",
-        "width=1920,height=1080,left=0,top=0"
-      );
 
       // Open small popups immediately (limited amount)
       let count = 0;
@@ -50,7 +43,7 @@
         console.log("Autoplay blocked by browser.");
       });
 
-    };
+    });
   </script>
 
 </body>
