@@ -6,16 +6,18 @@
 </head>
 <body>
 
-  <audio id="music" src="lovely.mp3" loop></audio>
+  <audio id="music" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     window.onload = function() {
 
-      const sound1 = document.getElementById("sound1");
+      const music = document.getElementById("music");
 
       // Open large main window (1920x1080)
       window.open(
-        "IMG_20260304_110715.jpg",
+        "theo.jpg",
         "_blank",
         "width=1920,height=1080,left=0,top=0"
       );
@@ -30,7 +32,7 @@
         const top = Math.floor(Math.random() * 600);
 
         window.open(
-          "IMG_20260304_110715.jpg",
+          "theo.jpg",
           "_blank",
           `width=300,height=200,left=${left},top=${top}`
         );
