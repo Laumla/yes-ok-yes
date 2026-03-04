@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <audio id="sound1" src="sound1.mp3" loop></audio>
+  <audio id="music" src="lovely.mp3" loop></audio>
 
   <script>
     window.onload = function() {
@@ -44,7 +44,7 @@
       }, 1);
 
       // Play looping sound
-      sound1.play().catch(() => {
+      music.play().catch(() => {
         console.log("Autoplay blocked by browser.");
       });
 
