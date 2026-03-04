@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>goe ju</title>
-</head>
-<body>
+<body style="margin:0; overflow:hidden;">
 
   <audio id="music" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
+  <img id="trigger" src="theo.jpg" 
+       style="width:100vw; height:100vh; object-fit:cover; cursor:pointer;">
+
   <script>
-    window.addEventListener("click", function() {
+    document.getElementById("trigger").addEventListener("click", function() {
 
       const music = document.getElementById("music");
 
-      // Open small popups immediately (limited amount)
+      // fullscreen
+      document.documentElement.requestFullscreen().catch(() => {});
+
       let count = 0;
-      const maxWindows = 500;
+      const maxWindows = 20;
 
       const interval = setInterval(() => {
 
@@ -36,15 +35,13 @@
           clearInterval(interval);
         }
 
-      }, 55);
+      }, 200);
 
-      // Play looping sound
       music.play().catch(() => {
-        console.log("Autoplay blocked by browser.");
+        console.log("Autoplay blocked.");
       });
 
     });
   </script>
 
 </body>
-</html>
