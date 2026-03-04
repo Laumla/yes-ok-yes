@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fun School Project</title>
+</head>
+<body>
+
+  <h1>Fun Project</h1>
+  <button id="startBtn">Start Show</button>
+
+  <audio id="sound1" src="sound1.mp3"></audio>
+  <audio id="sound2" src="sound2.mp3"></audio>
+
+  <script>
+    const startBtn = document.getElementById("startBtn");
+    const sound1 = document.getElementById("sound1");
+    const sound2 = document.getElementById("sound2");
+
+    startBtn.addEventListener("click", () => {
+
+      // Open large main window (1920x1080)
+      window.open(
+        "IMG_20260304_110715.jpg",
+        "_blank",
+        "width=1920,height=1080,left=0,top=0"
+      );
+
+      // Play first sound
+      sound1.play();
+
+      // When sound1 ends, play sound2
+      sound1.onended = () => {
+        sound2.play();
+      };
+
+      // When sound2 ends, open small popups
+      sound2.onended = () => {
+        let count = 0;
+        const maxWindows = 6; // number of small windows
+
+        const interval = setInterval(() => {
+
+          // Random position for small windows
+          const left = Math.floor(Math.random() * 800);
+          const top = Math.floor(Math.random() * 600);
+
+          window.open(
+            "IMG_20260304_110715.jpg",
+            "_blank",
+            `width=300,height=200,left=${left},top=${top}`
+          );
+
+          count++;
+
+          if (count >= maxWindows) {
+            clearInterval(interval);
+          }
+
+        }, 400); // opens every 0.4 seconds
+      };
+
+    });
+  </script>
+
+</body>
+</html>
